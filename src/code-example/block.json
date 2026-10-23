@@ -1,0 +1,50 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ddb/code-example",
+	"version": "0.1.0",
+	"title": "Code Example",
+	"category": "text",
+	"icon": "editor-code",
+	"description": "Display code examples in technical documentation.",
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"gradients": false,
+			"link": false
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": false
+		},
+		"border": {
+			"radius": true
+		}
+	},
+	"attributes": {
+		"code": {
+			"type": "string",
+			"source": "text",
+			"selector": "code",
+			"default": ""
+		},
+		"language": {
+			"type": "string",
+			"default": "javascript"
+		},
+		"fileName": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "developer-docs-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,0 +1,22 @@
+
+.ddb-code-example__editor {
+	padding: 0.5rem;
+}
+
+.ddb-code-example__textarea {
+	margin: 0;
+
+	.components-base-control__field {
+		margin-bottom: 0;
+	}
+
+	textarea {
+		min-height: 13.75rem;
+		font-family: Consolas, Monaco, "Andale Mono", monospace;
+		font-size: inherit;
+		line-height: inherit;
+		tab-size: 4;
+		white-space: pre;
+		overflow-x: auto;
+	}
+}
