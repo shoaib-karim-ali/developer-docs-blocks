@@ -1,5 +1,9 @@
 import { __ } from '@wordpress/i18n';
-import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	useBlockProps,
+	getFontSizeClass,
+} from '@wordpress/block-editor';
 import {
 	PanelBody,
 	SelectControl,
@@ -25,6 +29,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	const blockProps = useBlockProps( {
 		className: 'ddb-code-example',
 	} );
+	const fontSizeClass = getFontSizeClass( attributes.fontSize );
 
 	return (
 		<>
@@ -78,7 +83,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							'Write or paste your code here…',
 							'developer-docs-blocks'
 						) }
-						className="ddb-code-example__textarea"
+						className={ `ddb-code-example__textarea ${ fontSizeClass || '' }` }
+						style={ {
+							lineHeight:
+								attributes.style?.typography?.lineHeight,
+						} }
 					/>
 				</div>
 			</div>

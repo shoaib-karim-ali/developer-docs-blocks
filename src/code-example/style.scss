@@ -18,9 +18,10 @@
 }
 
 .ddb-code-example__pre {
+	max-height: 30rem;
 	margin: 0;
 	padding: 1rem;
-	overflow-x: auto;
+	overflow: auto;
 	background: transparent;
 	color: inherit;
 	font-family: var(--ddb-code-example-code-font-family);
