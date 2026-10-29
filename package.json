@@ -12,7 +12,8 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start --blocks-manifest"
+		"start": "wp-scripts start --blocks-manifest",
+		"test:unit": "wp-scripts test-unit-js"
 	},
 	"dependencies": {
 		"@wordpress/block-editor": "latest",
@@ -21,6 +22,9 @@
 		"@wordpress/i18n": "latest"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^37.0.0"
+		"@wordpress/scripts": "^37.0.0",
+		"react-dom": "^19.3.1",
+		"vite": "^8.3.5",
+		"vitest": "^5.0.5"
 	}
 }
