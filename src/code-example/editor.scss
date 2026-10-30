@@ -12,7 +12,7 @@
 
 	textarea {
 		min-height: 13.75rem;
-		font-family: Consolas, Monaco, "Andale Mono", monospace;
+		font-family: var(--ddb-code-example-code-font-family);
 		font-size: inherit;
 		line-height: inherit;
 		tab-size: 4;

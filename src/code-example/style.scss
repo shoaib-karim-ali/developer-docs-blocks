@@ -1,15 +1,22 @@
 .ddb-code-example {
-	--ddb-code-example-border-color: color-mix(in srgb, currentcolor 20%, transparent);
+	--ddb-code-example-border-color: #dcdcde;
 	--ddb-code-example-code-font-family: consolas, monaco, "Andale Mono", monospace;
 
 	overflow: hidden;
-	border: 1px solid var(--ddb-code-example-border-color, #dcdcde);
+	border: 1px solid var(--ddb-code-example-border-color);
 	border-radius: 0.375rem;
+}
+
+@supports (color: color-mix(in srgb, currentcolor 20%, transparent)) {
+
+	.ddb-code-example {
+		--ddb-code-example-border-color: color-mix(in srgb, currentcolor 20%, transparent);
+	}
 }
 
 .ddb-code-example__filename {
 	padding: 0.5rem 1rem;
-	border-bottom: 1px solid var(--ddb-code-example-border-color, #dcdcde);
+	border-bottom: 1px solid var(--ddb-code-example-border-color);
 	color: inherit;
 	font-family: inherit;
 	font-size: 0.8125rem;
