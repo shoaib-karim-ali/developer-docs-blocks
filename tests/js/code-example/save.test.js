@@ -61,4 +61,15 @@ describe( 'Code Example block save function', () => {
 		);
 		expect( markup ).not.toContain( '<script>' );
 	} );
+
+	it( 'falls back to JavaScript for an unsupported language', () => {
+		const markup = renderSavedBlock( {
+			code: 'const value = 1;',
+			language: 'invalid language',
+			fileName: '',
+		} );
+
+		expect( markup ).toContain( 'class="language-javascript"' );
+		expect( markup ).not.toContain( 'language-invalid language' );
+	} );
 } );
