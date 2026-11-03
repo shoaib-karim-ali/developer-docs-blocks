@@ -72,4 +72,31 @@ describe( 'Code Example block save function', () => {
 		expect( markup ).toContain( 'class="language-javascript"' );
 		expect( markup ).not.toContain( 'language-invalid language' );
 	} );
+
+	it( 'preserves multiline code', () => {
+		const markup = renderSavedBlock( {
+			code: 'const first = 1;\nconst second = 2;',
+			language: 'javascript',
+			fileName: '',
+		} );
+
+		expect( markup ).toContain( 'const first = 1;\nconst second = 2;' );
+	} );
+
+	it( 'renders empty code safely', () => {
+		const markup = renderSavedBlock( {
+			code: '',
+			language: 'javascript',
+			fileName: '',
+		} );
+
+		expect( markup ).toContain( '<code class="language-javascript">' );
+	} );
+
+	it( 'handles missing attributes safely', () => {
+		const markup = renderSavedBlock( {} );
+
+		expect( markup ).toContain( 'language-javascript' );
+		expect( markup ).toContain( '<code' );
+	} );
 } );

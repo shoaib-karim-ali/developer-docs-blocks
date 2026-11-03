@@ -1,23 +1,10 @@
 import { useBlockProps } from '@wordpress/block-editor';
-
-const DEFAULT_LANGUAGE = 'javascript';
-
-const SUPPORTED_LANGUAGES = [
-	'javascript',
-	'php',
-	'html',
-	'css',
-	'json',
-	'bash',
-	'sql',
-	'text',
-];
+import { getSafeLanguage } from './languages';
 
 export default function save( { attributes } ) {
-	const { code, language, fileName } = attributes;
-	const safeLanguage = SUPPORTED_LANGUAGES.includes( language )
-		? language
-		: DEFAULT_LANGUAGE;
+	const code = attributes.code ?? '';
+	const language = getSafeLanguage( attributes.language );
+	const fileName = attributes.fileName ?? '';
 
 	return (
 		<div
@@ -30,7 +17,7 @@ export default function save( { attributes } ) {
 			) }
 
 			<pre className="ddb-code-example__pre">
-				<code className={ `language-${ safeLanguage }` }>{ code }</code>
+				<code className={ `language-${ language }` }>{ code }</code>
 			</pre>
 		</div>
 	);

@@ -10,22 +10,15 @@ import {
 	TextControl,
 	TextareaControl,
 } from '@wordpress/components';
+import { LANGUAGE_OPTIONS, getSafeLanguage } from './languages';
 
 import './editor.scss';
 
-const LANGUAGE_OPTIONS = [
-	{ label: 'JavaScript', value: 'javascript' },
-	{ label: 'PHP', value: 'php' },
-	{ label: 'HTML', value: 'html' },
-	{ label: 'CSS', value: 'css' },
-	{ label: 'JSON', value: 'json' },
-	{ label: 'Bash', value: 'bash' },
-	{ label: 'SQL', value: 'sql' },
-	{ label: 'Plain text', value: 'text' },
-];
-
 export default function Edit( { attributes, setAttributes } ) {
-	const { code, language, fileName } = attributes;
+	const code = attributes.code ?? '';
+	const language = getSafeLanguage( attributes.language );
+	const fileName = attributes.fileName ?? '';
+
 	const blockProps = useBlockProps( {
 		className: 'ddb-code-example',
 	} );
