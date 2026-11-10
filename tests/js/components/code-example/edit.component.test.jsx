@@ -190,4 +190,64 @@ describe( 'Code Example editor', () => {
 			screen.getByRole( 'combobox', { name: 'Language' } ).value
 		).toBe( 'javascript' );
 	} );
+
+	it( 'does not render a filename when the filename is empty', () => {
+		render( <Edit attributes={ {} } setAttributes={ vi.fn() } /> );
+
+		expect( screen.queryByText( 'functions.php' ) ).toBeNull();
+	} );
+
+	it( 'falls back to JavaScript for an unsupported language', () => {
+		render(
+			<Edit
+				attributes={ { language: 'unsupported-language' } }
+				setAttributes={ vi.fn() }
+			/>
+		);
+
+		expect(
+			screen.getByRole( 'combobox', { name: 'Language' } ).value
+		).toBe( 'javascript' );
+	} );
+
+	it( 'applies the selected font size and line height to the code editor', () => {
+		render(
+			<Edit
+				attributes={ {
+					fontSize: 'large',
+					style: {
+						typography: {
+							lineHeight: '1.8',
+						},
+					},
+				} }
+				setAttributes={ vi.fn() }
+			/>
+		);
+
+		const codeEditor = screen.getByRole( 'textbox', { name: 'Code' } );
+
+		expect( codeEditor.classList.contains( 'has-large-font-size' ) ).toBe(
+			true
+		);
+		expect( codeEditor.style.lineHeight ).toBe( '1.8' );
+	} );
+
+	it( 'hides the filename when the filename is cleared', async () => {
+		const user = userEvent.setup();
+
+		renderEdit( {
+			fileName: 'functions.php',
+		} );
+
+		const filenameInput = screen.getByRole( 'textbox', {
+			name: 'Filename (optional)',
+		} );
+
+		expect( screen.getByText( 'functions.php' ) ).not.toBeNull();
+
+		await user.clear( filenameInput );
+
+		expect( screen.queryByText( 'functions.php' ) ).toBeNull();
+	} );
 } );
