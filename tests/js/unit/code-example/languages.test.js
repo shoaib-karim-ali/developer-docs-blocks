@@ -4,7 +4,7 @@ import {
 	LANGUAGE_OPTIONS,
 	SUPPORTED_LANGUAGES,
 	getSafeLanguage,
-} from '../../../src/code-example/languages';
+} from '../../../../src/code-example/languages';
 
 describe( 'Code Example language configuration', () => {
 	it( 'uses JavaScript as the default language', () => {

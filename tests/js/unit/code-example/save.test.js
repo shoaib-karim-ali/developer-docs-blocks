@@ -7,7 +7,7 @@ vi.mock( '@wordpress/block-editor', () => ( {
 	},
 } ) );
 
-import save from '../../../src/code-example/save';
+import save from '../../../../src/code-example/save';
 
 function renderSavedBlock( attributes ) {
 	return renderToStaticMarkup( save( { attributes } ) );

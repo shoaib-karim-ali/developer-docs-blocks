@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 const blockMetadataPath = fileURLToPath(
-	new URL( '../../../src/code-example/block.json', import.meta.url )
+	new URL( '../../../../src/code-example/block.json', import.meta.url )
 );
 
 const metadata = JSON.parse( readFileSync( blockMetadataPath, 'utf8' ) );
