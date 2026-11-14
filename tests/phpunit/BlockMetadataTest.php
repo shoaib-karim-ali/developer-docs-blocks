@@ -1,10 +1,13 @@
 <?php
 /**
- * Tests for Code Example block metadata registration.
+ * WordPress integration tests for Code Example block metadata.
  *
  * @package Ddb
  */
 
+/**
+ * Tests for Code Example block metadata registration.
+ */
 class BlockMetadataTest extends WP_UnitTestCase {
 
 	/**

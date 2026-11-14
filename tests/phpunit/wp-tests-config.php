@@ -12,16 +12,21 @@ define( 'DB_HOST', 'localhost' );
 define( 'DB_CHARSET', 'utf8mb4' );
 define( 'DB_COLLATE', '' );
 
+// Required by the WordPress PHPUnit test bootstrap.
+// phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 $table_prefix = 'wptests_';
 
 define( 'WP_TESTS_DOMAIN', 'localhost' );
 define( 'WP_TESTS_EMAIL', 'admin@example.org' );
 define( 'WP_TESTS_TITLE', 'Developer Docs Blocks Tests' );
 
-define(
-	'WP_PHP_BINARY',
-	getenv( 'WP_PHP_BINARY' ) ?: PHP_BINARY
-);
+$wp_php_binary = getenv( 'WP_PHP_BINARY' );
+
+if ( false === $wp_php_binary ) {
+		$wp_php_binary = PHP_BINARY;
+}
+
+define( 'WP_PHP_BINARY', $wp_php_binary );
 
 $wp_core_dir = getenv( 'WP_CORE_DIR' );
 

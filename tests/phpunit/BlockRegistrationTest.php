@@ -1,10 +1,13 @@
 <?php
 /**
- * Tests for block registration.
+ * WordPress integration tests for block registration.
  *
  * @package Ddb
  */
 
+/**
+ * Tests for block registration.
+ */
 class BlockRegistrationTest extends WP_UnitTestCase {
 
 	/**
